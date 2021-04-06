@@ -1,13 +1,10 @@
 package com.company;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Graph {
     int n = 4;
-    int m = 16;
     int[][] goal = {{0, 1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10, 11}, {12, 13, 14, 15}};
     ArrayList<int[][]> open = new ArrayList<>();
 
@@ -25,7 +22,7 @@ public class Graph {
             checker(rightZeroPosition(before));
             checker(topZeroPosition(before));
             checker(downZeroPosition(before));
-            if(equalsCollection(start)){
+            if(equalsCollection(before)){
                 System.out.println("Финиш!");
                 break;
             }
@@ -40,7 +37,7 @@ public class Graph {
     private boolean equalsCollection(int[][] start){
         for(int i = 0; i < n; i++){
             for(int j = 0; j <n; j++){
-                if(start[i][j] == goal[i][j]){
+                if(Arrays.equals(start, goal)){
                     return true;
                 }
             }
